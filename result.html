@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Amrapali
+    </title>
+    <style>
+        div.row {
+            display: flex;
+        }
+
+        div.box {
+            color: black;
+            font-size: large;
+            height: 110px;
+            width: 50%;
+            /* align-items: center;
+            align-self: center; */
+            text-align: center;
+            vertical-align: middle;
+            border: 1px black solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col" id = 'yo'>
+    </div>
+    <div class="row">
+        
+    </div>
+
+</body>
+    <script>
+        urlParams = new URLSearchParams(window.location.search);
+        val1 = urlParams.get('val1');
+        val2 = urlParams.get('val2');
+        val3 = urlParams.get('val3');
+        val4 = urlParams.get('val4');
+        if(val1.length < 3)
+        {
+            while(val1.length != 3) {
+                if(val2.length < 3)
+                val1 = '0'+val1;
+            }
+        }
+        {
+            while(val2.length != 3) {
+                val2 = '0'+val2;
+            }
+        }
+        for(i=0; i<val3; i++)
+        {
+            var new_row = document.createElement('div');
+            new_row.className = "row";
+            new_row.innerHTML = "<div class='box'>Amrapali<br>FixRate<br>ProductName : "+val4+"<br>MRP : "+val2+
+                "<br>code : "+val1+generate(3)+val2+
+                "</div>"+
+                "<div class='box'>Amrapali<br>FixRate<br>ProductName : "+val4+"<br>MRP : "+val2+
+                "<br>code : "+val1+generate(3)+val2+
+                "</div>";
+            document.getElementById('yo').appendChild(new_row);
+        }
+
+        function generate(n) {
+        var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
+
+        if ( n > max ) {
+                return generate(max) + generate(n - max);
+        }
+
+        max        = Math.pow(10, n+add);
+        var min    = max/10; // Math.pow(10, n) basically
+        var number = Math.floor( Math.random() * (max - min + 1) ) + min;
+
+        return ("" + number).substring(add); 
+}
+    </script>
+
+</html>

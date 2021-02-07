@@ -1,0 +1,36 @@
+<html>
+
+<head> <title> Amrapali </title> </head>
+	<style>
+		*{
+			text-align: center;
+		}
+	</style>
+<body>
+
+	<h1> Welcome </h1>
+	<h2>
+		Enter Secret Price <input type="number" id="a" />
+	</h2>
+	<h2>
+		Enter Selling Price <input type="number" id="b" />
+	</h2>
+	<h2>
+		Product Name <input type="text" id="d" />
+	</h2>
+	<h2>
+		Number of Rows <input type="number" id="c" />
+	</h2>
+	<button onclick="clicked()">Sumbit</button>
+</body>
+<script>
+	function clicked(){
+		val1 = document.getElementById("a").value;
+		val2 = document.getElementById("b").value;
+		val3 = document.getElementById("c").value;
+		val4 = document.getElementById("d").value;
+		window.location.href = "result.html?val1="+val1+"&val2="+val2+"&val3="+val3+"&val4="+val4;
+	}
+</script>
+
+</html>
